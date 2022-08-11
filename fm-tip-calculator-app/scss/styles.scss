@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+// Primary Colors and Tints
+$primary-color-500: hsl(183, 100%, 15%);
+$primary-color-400: hsl(186, 14%, 43%);
+$primary-color-300: hsl(184, 14%, 56%);
+$primary-color-200: hsl(185, 41%, 84%);
+$primary-color-100: hsl(189, 41%, 97%);
+// Hover Color
+$primary-color-hover: hsl(173, 61%, 77%);
+$primary-color-disabled: hsl(183, 79%, 24%);
+// Secondary Color
+$secondary-500: hsl(172, 67%, 45%);
+$white: hsl(0, 0%, 100%);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $primary-color-200;
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+button {
+    background-color: $primary-color-500;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding-block: 0.625rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    background-color: $primary-color-100;
+    border: none;
+    border-radius: 5px;
+    color: $primary-color-500;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+    text-align: right;
+}
+
+/************  Header Section Styles *************/
+header {
+    margin: 3.125rem auto 3rem;
+    text-align: center;
+
+    @media (min-width: 67.5em) {
+        margin-block: 10rem 5.5rem;
+    }
+}
+
+/************  App Section Styles *************/
+.app {
+    background-color: $white;
+    border-radius: 25px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    width: 23.4375rem;
+
+    @media (min-width: 67.5em) {
+        width: 57.5rem;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 67.5em) {
+            flex-direction: row;
+            justify-content: space-between;
+
+            & > * {
+                // width: 100%;
+            }
+        }
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (min-width: 67.5em) {
+            padding-block: 1rem;
+            width: 400px;
+        }
+    }
+
+    h2,
+    label {
+        color: $primary-color-400;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+
+        &.color--white {
+            color: $white;
+        }
+    }
+
+    p {
+        &.color--primary--medium {
+            color: $primary-color-300;
+            font-size: 0.8125rem;
+        }
+    }
+
+    &__input__bill,
+    &__input__people {
+        position: relative;
+
+        img {
+            position: absolute;
+            left: 1rem;
+            top: calc(50% + 8px);
+        }
+
+        input {
+            width: 100%;
+        }
+    }
+
+    .app__input__tip {
+        margin-block: 2rem;
+
+        @media (min-width: 67.5em) {
+            margin-block: 0;
+        }
+        // outline: 2px solid magenta;
+    }
+
+    .tip__button__group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        @media (min-width: 67.5em) {
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: $primary-color-500;
+            border: none;
+            border-radius: 5px;
+            color: $white;
+            font-size: 1.5rem;
+            padding-block: 0.625rem;
+            width: 145px;
+
+            &:hover {
+                background-color: $primary-color-hover;
+                color: $primary-color-500;
+            }
+
+            &:active {
+                background-color: $secondary-500;
+                color: $primary-color-500;
+            }
+
+            @media (min-width: 67.5em) {
+                padding-block: 0.4rem;
+                width: 117px;
+            }
+        }
+
+        input {
+            width: 145px;
+
+            @media (min-width: 67.5em) {
+                width: 117px;
+            }
+        }
+    }
+
+    &__output {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        background-color: $primary-color-500;
+        border-radius: 15px;
+        margin-top: 2rem;
+        padding: 1.5rem;
+
+        @media (min-width: 67.5em) {
+            // gap: 2.5rem;
+            margin-top: 0;
+            padding: 3.5rem 2.5rem 2.5rem;
+            width: 413px;
+        }
+
+        &__tip,
+        &__total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tip__person__output,
+        .tip__total__output {
+            color: $secondary-500;
+            font-size: 2rem;
+        }
+
+        button {
+            background-color: $secondary-500;
+            color: $primary-color-500;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            width: 100%;
+
+            @media (min-width: 67.5em) {
+                margin-top: 6rem;
+            }
+
+            &:hover {
+                background-color: $primary-color-hover;
+                color: $primary-color-500;
+            }
+
+            &.disabled {
+                background-color: $primary-color-disabled;
+                color: $primary-color-500;
+            }
+        }
+    }
+}
+
+/************  Attribution Styles *************/
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    color: hsl(183, 100%, 15%);
+}

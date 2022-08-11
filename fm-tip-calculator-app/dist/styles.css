@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: hsl(185deg, 41%, 84%);
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+button {
+    background-color: hsl(183deg, 100%, 15%);
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: hsl(0deg, 0%, 100%);
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding-block: 0.625rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    background-color: hsl(189deg, 41%, 97%);
+    border: none;
+    border-radius: 5px;
+    color: hsl(183deg, 100%, 15%);
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+    text-align: right;
+}
+
+/************  Header Section Styles *************/
+header {
+    margin: 3.125rem auto 3rem;
+    text-align: center;
+}
+@media (min-width: 67.5em) {
+    header {
+        margin-block: 10rem 5.5rem;
+    }
+}
+
+/************  App Section Styles *************/
+.app {
+    background-color: hsl(0deg, 0%, 100%);
+    border-radius: 25px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    width: 23.4375rem;
+}
+@media (min-width: 67.5em) {
+    .app {
+        width: 57.5rem;
+    }
+}
+.app__container {
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 67.5em) {
+    .app__container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.app__input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@media (min-width: 67.5em) {
+    .app__input {
+        padding-block: 1rem;
+        width: 400px;
+    }
+}
+.app h2,
+.app label {
+    color: hsl(186deg, 14%, 43%);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.app h2.color--white,
+.app label.color--white {
+    color: hsl(0deg, 0%, 100%);
+}
+.app p.color--primary--medium {
+    color: hsl(184deg, 14%, 56%);
+    font-size: 0.8125rem;
+}
+.app__input__bill,
+.app__input__people {
+    position: relative;
+}
+.app__input__bill img,
+.app__input__people img {
+    position: absolute;
+    left: 1rem;
+    top: calc(50% + 8px);
+}
+.app__input__bill input,
+.app__input__people input {
+    width: 100%;
+}
+.app .app__input__tip {
+    margin-block: 2rem;
+}
+@media (min-width: 67.5em) {
+    .app .app__input__tip {
+        margin-block: 0;
+    }
+}
+.app .tip__button__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+@media (min-width: 67.5em) {
+    .app .tip__button__group {
+        justify-content: space-between;
+    }
+}
+.app .tip__button__group button {
+    background-color: hsl(183deg, 100%, 15%);
+    border: none;
+    border-radius: 5px;
+    color: hsl(0deg, 0%, 100%);
+    font-size: 1.5rem;
+    padding-block: 0.625rem;
+    width: 145px;
+}
+.app .tip__button__group button:hover {
+    background-color: hsl(173deg, 61%, 77%);
+    color: hsl(183deg, 100%, 15%);
+}
+.app .tip__button__group button:active {
+    background-color: hsl(172deg, 67%, 45%);
+    color: hsl(183deg, 100%, 15%);
+}
+@media (min-width: 67.5em) {
+    .app .tip__button__group button {
+        padding-block: 0.4rem;
+        width: 117px;
+    }
+}
+.app .tip__button__group input {
+    width: 145px;
+}
+@media (min-width: 67.5em) {
+    .app .tip__button__group input {
+        width: 117px;
+    }
+}
+.app__output {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background-color: hsl(183deg, 100%, 15%);
+    border-radius: 15px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+@media (min-width: 67.5em) {
+    .app__output {
+        margin-top: 0;
+        padding: 3.5rem 2.5rem 2.5rem;
+        width: 413px;
+    }
+}
+.app__output__tip,
+.app__output__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app__output .tip__person__output,
+.app__output .tip__total__output {
+    color: hsl(172deg, 67%, 45%);
+    font-size: 2rem;
+}
+.app__output button {
+    background-color: hsl(172deg, 67%, 45%);
+    color: hsl(183deg, 100%, 15%);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    width: 100%;
+}
+@media (min-width: 67.5em) {
+    .app__output button {
+        margin-top: 6rem;
+    }
+}
+.app__output button:hover {
+    background-color: hsl(173deg, 61%, 77%);
+    color: hsl(183deg, 100%, 15%);
+}
+.app__output button.disabled {
+    background-color: hsl(183deg, 79%, 24%);
+    color: hsl(183deg, 100%, 15%);
+}
+
+/************  Attribution Styles *************/
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228deg, 45%, 44%);
+    color: hsl(183deg, 100%, 15%);
+} /*# sourceMappingURL=styles.css.map */
