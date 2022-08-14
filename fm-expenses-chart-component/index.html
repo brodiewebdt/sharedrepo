@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | Expenses chart component</title>
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="balance">
+                    <p>My balance</p>
+                    <p class="current-balance">$921.48</p>
+                </div>
+                <!-- /.balance -->
+                <div class="logo">
+                    <img src="images/logo.svg" alt="" />
+                </div>
+                <!-- /.logo -->
+            </header>
+
+            <main>
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Spending - Last 7 days</h1>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <ul class="chart">
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="this-month-data">
+                            <p>Total this month</p>
+                            <p class="monthly-total">$478.33</p>
+                        </div>
+                        <!-- /.this-month-data -->
+                        <div class="last-month-data">
+                            <p class="monthly-difference">+2.4%</p>
+                            <p>from last month</p>
+                        </div>
+                        <!-- /.last-month-data -->
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </main>
+        </div>
+        <!-- /.container -->
+
+        <!-- Spending - Last 7 days mon tue wed thu fri sat sun Total this month
+        $478.33 +2.4% from last month -->
+
+        <!-- <div class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by
+            <a href="https://github.com/brodiewebdt">David Turner</a>.
+        </div> -->
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
