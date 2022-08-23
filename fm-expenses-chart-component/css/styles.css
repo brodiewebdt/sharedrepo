@@ -11,24 +11,36 @@
     --color-dark-brown: hsl(25, 47%, 15%);
     --color-medium-brown: hsl(28, 10%, 53%);
     --color-cream: hsl(33, 100%, 98%);
-    --color-pale-orange: hsl(33, 100%, 98%);
+    --color-cream-dark: hsl(28, 65%, 92%);
+    --color-cream-light: hsl(33, 100%, 98%);
+    --color-medium-gray: hsl(0, 0%, 59%);
 }
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
 }
 
+/*********** General Layout *************/
 body {
+    background-color: var(--color-cream-dark);
     font-family: "DM Sans", sans-serif;
     font-size: 1.125rem;
+    line-height: 1.5;
 }
 
 .container {
-    max-width: 540px;
+    margin: 4rem auto 0;
+    width: 345px;
+}
 
-    outline: 2px solid black;
+@media (min-width: 600px) {
+    .container {
+        margin: 11.375rem auto 0;
+        width: 540px;
+    }
 }
 
 .sr-only {
@@ -45,56 +57,148 @@ body {
     white-space: nowrap !important;
 }
 
+/*********** Typography *************/
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 0.9375rem;
+}
+
+p.current-balance {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+p.text-medium {
+    color: var(--color-medium-brown);
+}
+p.monthly-total {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+p.monthly-difference {
+    font-weight: 700;
+}
+
+@media (min-width: 600px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: inherit;
+    }
+
+    p.current-balance {
+        font-size: 2rem;
+    }
+
+    p.monthly-total {
+        font-size: 3rem;
+    }
+
+    p.monthly-difference {
+        font-size: inherit;
+    }
+}
+
+/*********** Header Section Styles *************/
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background-color: var(--color-primary-red);
+    border-radius: 10px;
     color: var(--color-cream);
+    margin-bottom: 2rem;
+    padding: 1.25rem;
 }
 
-.chart {
-    /* display: table;
-    table-layout: fixed; */
+@media (min-width: 600px) {
+    header {
+        border-radius: 20px;
+        padding: 2rem 1.75rem;
+    }
+}
 
+/*********** Card Section Styles *************/
+.card {
+    background-color: var(--color-cream-light);
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+}
+
+.card-body {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.card-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    border-top: 2px solid var(--color-cream-dark);
+    line-height: 1;
+    padding-top: 1.5rem;
+}
+
+.this-month-data,
+.last-month-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/****** Chart Styles ********/
+.chart {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
 
-    /* max-width: 700px; */
-    max-width: 460px;
+    max-width: 500px;
     height: 200px;
     margin: 0 auto;
-
-    outline: 2px solid magenta;
     padding: 0;
 }
 
 li {
     position: relative;
     display: table-cell;
-    /* display: block; */
-    vertical-align: bottom;
     height: 200px;
+    vertical-align: bottom;
+    width: 33px;
+}
 
-    width: 50px;
-    /* margin-right: 1rem; */
+@media (min-width: 600px) {
+    .card {
+        border-radius: 20px;
+    }
 
-    outline: 2px solid greenyellow;
+    .card-body {
+        margin-bottom: 3rem;
+    }
+
+    li {
+        width: 50px;
+    }
 }
 
 span {
-    border-radius: 5px;
-    cursor: pointer;
-    /* margin: 0 1em; */
-    display: block;
-    background: var(--color-primary-red);
-    animation: draw 1s ease-in-out;
-
-    width: 100%;
     position: absolute;
     bottom: 0;
-    outline: 2px solid blue;
+
+    background-color: var(--color-primary-red);
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+
+    animation: draw 1s ease-in-out;
 }
 
 span:hover {
@@ -110,36 +214,60 @@ span:hover {
 }
 
 span:before {
+    content: attr(data-title);
     position: absolute;
     left: 0;
     right: 0;
     top: 100%;
-    padding-top: 0.5rem;
-    display: block;
-    text-align: center;
-    content: attr(data-title);
+
     color: var(--color-medium-brown);
+    display: block;
+    font-size: 0.75rem;
+    padding-top: 0.5rem;
+    text-align: center;
 }
 
 span:hover:after {
+    content: attr(data-amount);
     position: absolute;
-    left: -20%;
-    right: 0;
+    left: -50%;
     bottom: 100%;
+
     background-color: var(--color-dark-brown);
     border-radius: 5px;
     color: var(--color-cream);
+    display: block;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    display: block;
     text-align: center;
-    content: attr(data-amount);
-
-    width: 150%;
+    width: 250%;
+    z-index: 1;
 }
 
+@media (min-width: 600px) {
+    span::before {
+        font-size: 0.9375rem;
+    }
+
+    span:hover:after {
+        left: -20%;
+        width: 150%;
+    }
+}
+
+/*********** Animation *************/
 @keyframes draw {
     0% {
         height: 0;
     }
+}
+
+/*********** Attribution Styles *************/
+.attribution {
+    font-size: 11px;
+    margin-top: 1rem;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
 }
