@@ -1,63 +1,95 @@
-const bill = document.getElementById("bill");
-const totalPerPerson = document.querySelector(".tip__total__output");
-const tipDisplay = document.querySelector(".tip__person__output");
-const tipButtons = document.querySelector(".tip__button__group");
-const people = document.getElementById("people");
-
 const app = document.querySelector(".app");
 
-let billInput = 0;
+const totalDisplay = document.querySelector(".tip__total__output");
+const tipDisplay = document.querySelector(".tip__person__output");
+const tipButtons = document.querySelector(".tip__button__group");
+const tipBtn = document.querySelectorAll(".tip__button");
+const customTipDisplay = document.querySelector(".custom-tip");
+const billInput = document.getElementById("bill");
+const peopleInput = document.getElementById("people");
+const errorMessage = document.querySelector(".error-message");
+
+
+let numOfPeople = 0;
 let tipAmount = 0;
-let numOfPeople;
 
+// Calculates and displays the values for the app
 function calcBill() {
-    // Get the bill amount and store it in a variable
-    console.log("calcBill function has fired");
+    let bill = Number(document.querySelector("#bill").value);
+    let numOfPeople = Number(document.getElementById("people").value);
+
+    let totalTip = bill * tipAmount;
+
+
+    if (numOfPeople === 0) {
+        peopleInput.classList.add("error");
+        errorMessage.classList.add("error");
+        totalDisplay.textContent = `$0.00`;
+        tipDisplay.textContent = `$0.00`;
+        return;
+    } else {
+        peopleInput.classList.remove("error");
+        errorMessage.classList.remove("error");
+    }
+
+    totalDisplay.textContent =
+        "$" + ((bill + totalTip) / numOfPeople).toFixed(2);
+    tipDisplay.textContent =
+        "$" + ((bill * tipAmount) / numOfPeople).toFixed(2);
+
+
 }
+// Handles the tip button clicks and shows the active tip selected
+tipButtons.addEventListener("click", function (e) {
+    tipAmount = e.target.value / 100;
 
-app.addEventListener("keyup", (e) => {
-    // console.log(billInput);
-    // calcBill()
+
+    for (let i = 0; i < tipBtn.length; i++) {
+        if (e.target === tipBtn[i]) {
+            tipBtn[i].classList.add("active-btn");
+        } else {
+            tipBtn[i].classList.remove("active-btn");
+        }
+    }
+
+    setTimeout(() => {
+        calcBill();
+    }, 1000);
+
 });
 
-// console.log(people.value);
+// Handles the input for the custom tip input box
+customTipDisplay.addEventListener("input", (e) => {
+    tipAmount = e.target.value / 100;
 
-bill.addEventListener("keyup", (e) => {
-    billInput = parseInt(e.target.value);
-    console.log(billInput);
+    setTimeout(() => {
+        calcBill();
+    }, 1000);
 });
 
-tipButtons.addEventListener("click", (e) => {
-    // tipAmount = e.target.value;
-    tipAmount = e.target.value * billInput;
-
-    console.log(typeof tipAmount);
-
-    console.log(typeof (tipAmount + billInput));
+// Handles the input for the number of people input box
+peopleInput.addEventListener("keyup", (e) => {
+    numOfPeople = parseInt(e.target.value);
 });
 
-people.addEventListener("keyup", (e) => {
-    numOfPeople = e.target.value;
-    console.log(numOfPeople);
-    // console.log(parseInt(100 * 0.10 + 100) / numOfPeople);
-    // totalPerPerson.textContent = parseInt(((billInput *  tipAmount) + billInput) / numOfPeople);
-    totalPerPerson.textContent = (tipAmount + billInput) / numOfPeople;
-    tipDisplay.textContent = tipAmount / numOfPeople;
-    bill.value = "";
-    people.value = "";
-});
-
+// Resets all the values to the default state
 document.querySelector(".btn-reset").addEventListener("click", () => {
-    bill.value = "";
-    people.value = "";
-    totalPerPerson.textContent = 0;
-    tipDisplay.textContent = 0;
+    bill = 0;
+    tipAmount = 0;
+    billInput.value = "";
+    customTipDisplay.value = "";
+    peopleInput.value = "";
+    totalDisplay.textContent = `$0.00`;
+    tipDisplay.textContent = `$0.00`;
+
+    for (let i = 0; i < tipBtn.length; i++) {
+        tipBtn[i].classList.remove("active-btn");
+    }
 });
 
-// console.log(billInput);
-
-// get the bill amount
-// get tip amount
-// get the number of people
-
-// console.log(typeof tipAmount);
+// Handles all the inputs for the entire app
+app.addEventListener("input", () => {
+    setTimeout(() => {
+        calcBill();
+    }, 1000);
+});

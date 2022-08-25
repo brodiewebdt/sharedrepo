@@ -12,6 +12,7 @@ $primary-color-disabled: hsl(183, 79%, 24%);
 // Secondary Color
 $secondary-500: hsl(172, 67%, 45%);
 $white: hsl(0, 0%, 100%);
+$error-color: hsl(13, 70%, 61%);
 
 *,
 *::before,
@@ -44,7 +45,7 @@ body {
 
 button {
     background-color: $primary-color-500;
-    background-color: red;
+    // background-color: red;
     border: none;
     border-radius: 5px;
     color: $white;
@@ -91,6 +92,19 @@ header {
 
     @media (min-width: 67.5em) {
         width: 57.5rem;
+    }
+
+    .error-message {
+        display: none;
+    }
+
+    .error {
+        color: $error-color;
+        display: flex;
+    }
+
+    #people.error {
+        border: 2px solid $error-color;
     }
 
     &__container {
@@ -151,6 +165,11 @@ header {
         }
     }
 
+    &__input__people label {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .app__input__tip {
         margin-block: 2rem;
 
@@ -178,6 +197,10 @@ header {
             padding-block: 0.625rem;
             width: 145px;
 
+            &.active-btn {
+                background-color: $secondary-500;
+            }
+
             &:hover {
                 background-color: $primary-color-hover;
                 color: $primary-color-500;
@@ -196,6 +219,11 @@ header {
 
         input {
             width: 145px;
+
+            &:hover,
+            &:focus {
+                outline: 3px solid $secondary-500;
+            }
 
             @media (min-width: 67.5em) {
                 width: 117px;

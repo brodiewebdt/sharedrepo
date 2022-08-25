@@ -40,31 +40,35 @@
                                 aria-hidden="true"
                             />
                             <input
-                                type="text"
+                                type="number"
                                 name="bill"
                                 id="bill"
-                                value="0"
+                                placeholder="0"
                             />
                         </div>
                         <!-- /.app__input__bill -->
                         <div class="app__input__tip">
                             <h2>Select Tip %</h2>
-                            <div class="btn tip__button__group">
-                                <button class="tip__button">5%</button
+                            <div class="tip__button__group">
+                                <button class="tip__button" value="5">5%</button
                                 ><!-- /.tip__button --><button
                                     class="btn tip__button"
+                                    value="10"
                                 >
                                     10%</button
                                 ><!-- /.tip__button --><button
                                     class="btn tip__button"
+                                    value="15"
                                 >
                                     15%</button
                                 ><!-- /.tip__button --><button
                                     class="btn tip__button"
+                                    value="25"
                                 >
                                     25%</button
                                 ><!-- /.tip__button --><button
                                     class="btn tip__button"
+                                    value="50"
                                 >
                                     50%</button
                                 ><!-- /.tip__button -->
@@ -72,7 +76,7 @@
                                     >Custom Tip Amount</label
                                 >
                                 <input
-                                    class="tip__button"
+                                    class="custom-tip"
                                     type="text"
                                     name="custom-tip"
                                     id="custom-tip"
@@ -83,7 +87,12 @@
                         </div>
                         <!-- /.app__input__tip -->
                         <div class="app__input__people">
-                            <label for="people">Number of People</label>
+                            <label for="people"
+                                ><span>Number of People</span
+                                ><span class="error-message"
+                                    >Can't be zero</span
+                                >
+                            </label>
                             <img
                                 class=""
                                 src="images/icon-person.svg"
@@ -91,10 +100,11 @@
                                 aria-hidden="true"
                             />
                             <input
+                                class="people"
                                 type="text"
                                 name="people"
                                 id="people"
-                                value="0"
+                                placeholder="0"
                             />
                         </div>
                         <!-- /.app__input__people -->
@@ -109,7 +119,7 @@
                             </div>
                             <!-- /.tip__person__text -->
                             <div class="tip__person__output color-secondary">
-                                $4.27
+                                $0.00
                             </div>
                             <!-- /.tip__person__output -->
                         </div>
@@ -121,7 +131,7 @@
                             </div>
                             <!-- /.tip__total__text -->
                             <div class="tip__total__output color-secondary">
-                                $32.79
+                                $0.00
                             </div>
                             <!-- /.tip__total__output -->
                         </div>

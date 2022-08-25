@@ -30,7 +30,6 @@ body {
 
 button {
     background-color: hsl(183deg, 100%, 15%);
-    background-color: red;
     border: none;
     border-radius: 5px;
     color: hsl(0deg, 0%, 100%);
@@ -81,6 +80,16 @@ header {
         width: 57.5rem;
     }
 }
+.app .error-message {
+    display: none;
+}
+.app .error {
+    color: hsl(13deg, 70%, 61%);
+    display: flex;
+}
+.app #people.error {
+    border: 2px solid hsl(13deg, 70%, 61%);
+}
 .app__container {
     display: flex;
     flex-direction: column;
@@ -130,6 +139,10 @@ header {
 .app__input__people input {
     width: 100%;
 }
+.app__input__people label {
+    display: flex;
+    justify-content: space-between;
+}
 .app .app__input__tip {
     margin-block: 2rem;
 }
@@ -157,6 +170,9 @@ header {
     padding-block: 0.625rem;
     width: 145px;
 }
+.app .tip__button__group button.active-btn {
+    background-color: hsl(172deg, 67%, 45%);
+}
 .app .tip__button__group button:hover {
     background-color: hsl(173deg, 61%, 77%);
     color: hsl(183deg, 100%, 15%);
@@ -173,6 +189,10 @@ header {
 }
 .app .tip__button__group input {
     width: 145px;
+}
+.app .tip__button__group input:hover,
+.app .tip__button__group input:focus {
+    outline: 3px solid hsl(172deg, 67%, 45%);
 }
 @media (min-width: 67.5em) {
     .app .tip__button__group input {
